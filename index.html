@@ -1,1 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Syed Hashir A — Cybersecurity Student | Security Analyst Intern | IoT & Embedded Systems Enthusiast" />
+<meta name="author" content="Syed Hashir A" />
 
+<meta property="og:title" content="Syed Hashir A — Cybersecurity & IoT Portfolio" />
+<meta property="og:description" content="Computer Science student specializing in cybersecurity with hands-on experience in VAPT, IoT, and embedded systems." />
+<meta property="og:type" content="website" />
+
+<title>Syed Hashir A — Cybersecurity & IoT Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-elev: #12121a;
+    --bg-card: #16161f;
+    --border: #23232e;
+    --text: #e8e8ee;
+    --text-muted: #9494a8;
+    --accent: #6366f1;
+    --accent-2: #8b5cf6;
+    --accent-3: #06b6d4;
+    --accent-glow: rgba(99, 102, 241, 0.35);
+    --radius: 14px;
+    --max: 1120px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --bg-elev: #f8f9fc;
+    --bg-card: #ffffff;
+    --border: #e5e7ee;
+    --text: #0f0f17;
+    --text-muted: #5b5b6e;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition), background var(--transition);
+  }
+  nav.scrolled { border-bottom-color: var(--border); }
+
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .theme-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all var(--transition);
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.4rem;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.18), transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .hero-badge .pulse {
+    width: 7px; height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: var(--text-muted);
+    max-width: 680px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: all var(--transition);
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--accent-2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px var(--accent);
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .social-row a {
+    color: var(--text-muted);
+    transition: color var(--transition), transform var(--transition);
+  }
+  .social-row a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 6rem 1.5rem;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+    font-size: 1.02rem;
+  }
+  .about-text strong { color: var(--text); font-weight: 600; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .stat {
+    padding: 1.4rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), transform var(--transition);
+  }
+  .stat:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .stat-num {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 8px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .timeline-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+  .timeline-role { font-weight: 600; font-size: 1.08rem; }
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .timeline-company {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.85rem;
+  }
+  .timeline-company span {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .timeline-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .timeline-bullets li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-3));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+    z-index: 2;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px var(--accent-glow);
+  }
+  .project-card:hover::after { transform: scaleX(1); }
+  .project-card.expanded {
+    grid-column: 1 / -1;
+    transform: none;
+  }
+  .project-card.expanded:hover { transform: none; }
+
+  /* Image placeholder */
+  .project-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(6, 182, 212, 0.12)),
+      repeating-linear-gradient(45deg, var(--bg-elev) 0 12px, var(--bg-card) 12px 24px);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    place-items: center;
+    color: var(--text-muted);
+    overflow: hidden;
+  }
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .project-card:hover .project-image img {
+    transform: scale(1.04);
+  }
+  .project-image .placeholder-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+  .project-image .placeholder-hint svg { opacity: 0.6; }
+
+  /* Card body (clickable) */
+  .project-body {
+    padding: 1.5rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  .gh-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: all var(--transition);
+  }
+  .gh-icon:hover {
+    color: white;
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -8px var(--accent);
+  }
+
+  .project-short {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  .project-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.22rem 0.55rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+  }
+
+  .expand-hint {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+    transition: gap var(--transition);
+  }
+  .expand-hint svg {
+    transition: transform var(--transition);
+  }
+  .project-card.expanded .expand-hint svg {
+    transform: rotate(180deg);
+  }
+
+  /* Collapsible details */
+  .project-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid transparent;
+  }
+  .project-card.expanded .project-details {
+    max-height: 3000px;
+    border-top-color: var(--border);
+  }
+
+  .project-details-inner {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 900px) {
+    .project-details-inner { grid-template-columns: 1.4fr 1fr; }
+  }
+
+  .project-details h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+
+  .project-details p {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    margin-bottom: 0.9rem;
+  }
+  .project-details strong { color: var(--text); font-weight: 600; }
+
+  .project-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .project-details ul li {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    padding-left: 1.1rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+  }
+  .project-details ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .detail-block + .detail-block { margin-top: 1.2rem; }
+
+  .project-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-repo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 9px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: all var(--transition);
+    margin-top: 0.5rem;
+    width: fit-content;
+  }
+  .project-repo-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .skill-group {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition);
+  }
+  .skill-group:hover { border-color: var(--accent); }
+  .skill-group h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+  }
+  .skill-list li {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+    background: var(--bg-elev);
+    border-radius: 6px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+  .cert-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: all var(--transition);
+  }
+  .cert-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -15px var(--accent-glow);
+  }
+  .cert-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    display: grid;
+    place-items: center;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+  .cert-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .cert-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    flex-grow: 1;
+  }
+  .cert-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.4rem;
+    transition: gap var(--transition);
+  }
+  .cert-link:hover { gap: 0.6rem; }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    text-align: center;
+    padding: 6rem 1.5rem 5rem;
+  }
+  .contact h2 { margin-bottom: 1rem; }
+  .contact p {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--accent); }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: 70%;
+      max-width: 320px;
+      background: var(--bg-elev);
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      transform: translateX(100%);
+      transition: transform var(--transition);
+      border-left: 1px solid var(--border);
+    }
+    .nav-links.open { transform: translateX(0); }
+    .nav-links a { font-size: 1.1rem; }
+    .menu-btn { display: block; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    section { padding: 4rem 1.25rem; }
+    .hero { padding-top: 5rem; }
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  ::selection { background: var(--accent); color: white; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-dot"></span>
+      Syed Hashir A
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-badge">
+      <span class="pulse"></span>
+      Open to Cybersecurity Internships & Roles
+    </span>
+
+    <h1>Hi, I'm <span class="gradient-text">Syed Hashir A</span>.</h1>
+
+    <p class="hero-tagline">
+      A <strong>Computer Science student</strong> specializing in <strong>Cybersecurity</strong> —
+      with hands-on experience in VAPT, network security, and web application security.
+      I also explore <strong>IoT & Embedded Systems</strong> as a personal passion, building
+      fault-tolerant systems from the ground up.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">
+        Get in touch
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#projects" class="btn btn-ghost">View projects</a>
+    </div>
+
+    <!-- TODO: Replace with your actual profile URLs -->
+    <div class="social-row">
+      <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="mailto:your.email@example.com" aria-label="Email">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="fade-in">
+  <span class="section-label">01 — About</span>
+  <h2>About me</h2>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a <strong>Computer Science student</strong> with a strong interest in
+        <strong>cybersecurity</strong>, driven by a passion for understanding how systems work,
+        identifying security challenges, and developing practical solutions. I continuously
+        expand my knowledge through hands-on learning, personal projects, and self-study.
+      </p>
+      <p>
+        Beyond cybersecurity, I explore <strong>IoT and embedded systems</strong> as personal
+        interests. Through hobby projects and online learning, I've gained experience with
+        <strong>Arduino, embedded C/C++, PCB design, CAD, and basic networking</strong> — enjoying
+        the interaction between hardware and software to strengthen my technical and
+        problem-solving skills.
+      </p>
+      <p>
+        I'm always eager to learn, collaborate, and gain practical experience in cybersecurity
+        while continuing to pursue IoT and embedded systems. My goal is to develop expertise
+        in securing modern technologies and contribute to building reliable, secure, and
+        innovative engineering solutions.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Internships completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Hands-on projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Certifications earned</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Curiosity to learn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="fade-in">
+  <span class="section-label">02 — Experience</span>
+  <h2>Where I've worked</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-head">
+        <div class="timeline-role">Security Analyst Intern</div>
+        <div class="timeline-date">Nov 2025 — Jan 2026</div>
+      </div>
+      <div class="timeline-company">Ampcus Cyber · Internship <span>· Bengaluru, Karnataka · On-site</span></div>
+      <ul class="timeline-bullets">
+        <li>Strengthened foundations in <strong>Network Security</strong> and <strong>Web Application Security</strong> through immersive hands-on work.</li>
+        <li>Gained exposure to secure network architecture, web application vulnerabilities, API security, Linux fundamentals, DNS, HTTP, and penetration testing methodologies.</li>
+        <li>Worked extensively with industry platforms including <strong>TryHackMe</strong>, <strong>PortSwigger Web Security Academy</strong>, <strong>OverTheWire</strong>, and API security labs.</li>
+        <li>Developed practical skills in identifying, analyzing, and mitigating real-world security vulnerabilities.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-head">
+        <div class="timeline-role">Robotics Intern</div>
+        <div class="timeline-date">May 2024 — Jul 2024</div>
+      </div>
+      <div class="timeline-company">ARTPARK · Internship <span>· Bengaluru, Karnataka · On-site</span></div>
+      <ul class="timeline-bullets">
+        <li>Designed and developed a <strong>5-DOF robotic arm</strong> using Arduino, integrating five servo motors for independent control of base, shoulder, elbow, wrist, and gripper joints.</li>
+        <li>Implemented a keyboard-based control interface enabling real-time joint manipulation via serial communication for precise pick-and-place operations.</li>
+        <li>Integrated <strong>gesture-based gripper control</strong>, mimicking finger movements for intuitive, hands-free object handling.</li>
+        <li>Combined embedded programming, servo motor control, and serial communication into a hybrid control architecture with applications in industrial automation and assistive robotics.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="fade-in">
+  <span class="section-label">03 — Projects</span>
+  <h2>Selected work</h2>
+  <p style="color: var(--text-muted); margin-top: -2rem; margin-bottom: 2.5rem; max-width: 620px;">
+    Click any project card to reveal full details. Use the GitHub icon to jump straight to the source code.
+  </p>
+
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- ============ PROJECT 1 ============ -->
+    <article class="project-card">
+      <!-- TODO: Replace placeholder with <img src="your-image.jpg" alt="SecureLens dashboard" /> -->
+      <div class="project-image">
+        <div class="placeholder-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Project Image</span>
+          <span style="opacity:0.6;">(Add &lt;img src="..."&gt;)</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <span class="project-badge">CYBERSECURITY</span>
+        <div class="project-head">
+          <h3 class="project-title">SecureLens — DNS Tunneling Detection</h3>
+          <!-- TODO: Add GitHub repo URL -->
+          <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="gh-icon" aria-label="View on GitHub" title="View on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+        <p class="project-short">
+          A React dashboard for detecting DNS tunneling — a technique attackers use to exfiltrate data through ordinary-looking DNS queries.
+        </p>
+        <div class="project-meta-row">
+          <div class="tech-tags">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">ML</span>
+            <span class="tech-tag">DNS</span>
+          </div>
+          <span class="expand-hint">
+            Details
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-details-inner">
+          <div>
+            <div class="detail-block">
+              <h4>Overview</h4>
+              <p>
+                SecureLens detects <strong>DNS tunneling</strong> — a technique attackers use to exfiltrate data
+                or route command-and-control traffic through ordinary-looking DNS queries that often bypass
+                traditional firewalls.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Train multiple machine learning classifiers on labeled DNS query data</li>
+                <li>Compare classifier performance side-by-side</li>
+                <li>Run real-time detection on new DNS queries</li>
+                <li>Interactive React dashboard for visualization</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">DNS</span>
+              </div>
+            </div>
+            <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="project-repo-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ PROJECT 2 ============ -->
+    <article class="project-card">
+      <div class="project-image">
+        <div class="placeholder-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Project Image</span>
+          <span style="opacity:0.6;">(Add &lt;img src="..."&gt;)</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <span class="project-badge">MACHINE LEARNING</span>
+        <div class="project-head">
+          <h3 class="project-title">Email Spam Detection</h3>
+          <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="gh-icon" aria-label="View on GitHub" title="View on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+        <p class="project-short">
+          Real-time spam detection using TF-IDF and Naive Bayes, wrapped in a React frontend for instant classification.
+        </p>
+        <div class="project-meta-row">
+          <div class="tech-tags">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">ML</span>
+            <span class="tech-tag">NLP</span>
+          </div>
+          <span class="expand-hint">
+            Details
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-details-inner">
+          <div>
+            <div class="detail-block">
+              <h4>Overview</h4>
+              <p>
+                Built an email spam detection system using <strong>TF-IDF feature extraction</strong> and a
+                <strong>Naive Bayes classifier</strong> to separate spam from legitimate email in real time.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Real-time classification of incoming emails</li>
+                <li>React frontend turning a backend ML pipeline into an interactive tool</li>
+                <li>Focused feature engineering for reliable predictions across varied content</li>
+                <li>Practical application of ML to an everyday security problem</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">TF-IDF</span>
+              </div>
+            </div>
+            <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="project-repo-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ PROJECT 3 ============ -->
+    <article class="project-card">
+      <div class="project-image">
+        <div class="placeholder-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Project Image</span>
+          <span style="opacity:0.6;">(Add &lt;img src="..."&gt;)</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <span class="project-badge">CYBERSECURITY</span>
+        <div class="project-head">
+          <h3 class="project-title">Password Cracking & Strength Evaluation</h3>
+          <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="gh-icon" aria-label="View on GitHub" title="View on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+        <p class="project-short">
+          A tool demonstrating how dictionary and brute-force attacks exploit weak passwords, paired with strength evaluation.
+        </p>
+        <div class="project-meta-row">
+          <div class="tech-tags">
+            <span class="tech-tag">Cybersecurity</span>
+            <span class="tech-tag">VAPT</span>
+            <span class="tech-tag">Python</span>
+          </div>
+          <span class="expand-hint">
+            Details
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-details-inner">
+          <div>
+            <div class="detail-block">
+              <h4>Overview</h4>
+              <p>
+                Built a tool demonstrating how <strong>dictionary and brute-force attacks</strong> exploit weak
+                passwords, then built a companion strength-evaluation mechanism to show users how resistant
+                their own passwords are to those same attacks.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>Why It Matters</h4>
+              <ul>
+                <li>Shows exactly why <em>"Password123"</em> falls in seconds while a passphrase doesn't</li>
+                <li>Reinforces good authentication practices through hands-on demonstration</li>
+                <li>Practical introduction to offensive security concepts</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Cybersecurity</span>
+                <span class="tech-tag">VAPT</span>
+              </div>
+            </div>
+            <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="project-repo-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ PROJECT 4 ============ -->
+    <article class="project-card">
+      <div class="project-image">
+        <div class="placeholder-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Project Image</span>
+          <span style="opacity:0.6;">(Add &lt;img src="..."&gt;)</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <span class="project-badge">IoT / EMBEDDED</span>
+        <div class="project-head">
+          <h3 class="project-title">Smart Gas Leakage Detection (GasGuard)</h3>
+          <a href="https://github.com/SyedHashirA/GasGuard" target="_blank" rel="noopener" class="gh-icon" aria-label="View on GitHub" title="View on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+        <p class="project-short">
+          An ESP32-based LPG detector solving what most DIY detectors ignore: environmental calibration.
+        </p>
+        <div class="project-meta-row">
+          <div class="tech-tags">
+            <span class="tech-tag">ESP32</span>
+            <span class="tech-tag">Arduino</span>
+            <span class="tech-tag">Blynk</span>
+          </div>
+          <span class="expand-hint">
+            Details
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-details-inner">
+          <div>
+            <div class="detail-block">
+              <h4>The Problem</h4>
+              <p>
+                Most DIY gas detectors hard-code a single threshold. This works in a controlled test but fails
+                in real homes — humidity, temperature, background VOCs, and sensor-to-sensor variation all
+                shift the baseline. Result: false alarms or missed leaks.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>The Solution</h4>
+              <ul>
+                <li><strong>Auto-calibration</strong> — measures each home's clean-air baseline over 60s on first boot</li>
+                <li><strong>User-adjustable sensitivity</strong> — tuned live via the Blynk IoT app</li>
+                <li><strong>Rate-of-rise detection</strong> — +20 jump within 1s triggers the alarm</li>
+                <li><strong>Hysteresis recovery</strong> — prevents alarm flickering near threshold</li>
+                <li><strong>Active air sampling</strong> — 5V fan with sheet diffuser cuts response from 10–30s to 2–5s</li>
+                <li><strong>Fire-alarm buzzer pattern</strong> — 3000 Hz + 2500 Hz alternating</li>
+                <li><strong>Servo-driven shutoff</strong> — SG90 rotates 90° to close a gas valve</li>
+                <li><strong>IoT dashboard</strong> — live readings and controls via Blynk</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Key Engineering Decisions</h4>
+              <ul>
+                <li>Auto-calibration over fixed thresholds</li>
+                <li>Rate-of-rise over pure threshold</li>
+                <li>Active air sampling for faster response</li>
+                <li>Hysteresis on recovery for smooth UX</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">MQ-6 Sensor</span>
+                <span class="tech-tag">SG90 Servo</span>
+                <span class="tech-tag">Blynk IoT</span>
+                <span class="tech-tag">Arduino (C++)</span>
+              </div>
+            </div>
+            <div class="detail-block">
+              <h4>Status</h4>
+              <p style="font-size: 0.85rem;">
+                ⚠️ Personal / research project. Built purely for exploration and education.
+                Not BIS-certified. Not intended for commercial use as a safety device.
+              </p>
+            </div>
+            <a href="https://github.com/SyedHashirA/GasGuard" target="_blank" rel="noopener" class="project-repo-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ PROJECT 5 ============ -->
+    <article class="project-card">
+      <div class="project-image">
+        <div class="placeholder-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Project Image</span>
+          <span style="opacity:0.6;">(Add &lt;img src="..."&gt;)</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <span class="project-badge">IoT / EMBEDDED</span>
+        <div class="project-head">
+          <h3 class="project-title">Fault-Tolerant Smart Home Automation</h3>
+          <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="gh-icon" aria-label="View on GitHub" title="View on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+        <p class="project-short">
+          A 4-tier redundant IoT control system that eliminates the single point of failure in WiFi-only smart homes.
+        </p>
+        <div class="project-meta-row">
+          <div class="tech-tags">
+            <span class="tech-tag">ESP32</span>
+            <span class="tech-tag">BLE</span>
+            <span class="tech-tag">C++</span>
+          </div>
+          <span class="expand-hint">
+            Details
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-details-inner">
+          <div>
+            <div class="detail-block">
+              <h4>Overview</h4>
+              <p>
+                Most smart home devices rely solely on WiFi — so when the router drops, the entire system goes
+                dark. I designed and built a <strong>4-tier redundant IoT control system</strong> that eliminates
+                this single point of failure.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>Four Independent Control Paths</h4>
+              <ul>
+                <li><strong>WiFi via Blynk</strong> — cloud control, highest priority</li>
+                <li><strong>Bluetooth Low Energy remote</strong> — local short-range fallback</li>
+                <li><strong>IR remote</strong> — zero-pairing, deterministic physical fallback</li>
+                <li><strong>Offline voice recognition (AI VC-02)</strong> — hands-free, no internet needed</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>How It Works</h4>
+              <p>
+                A priority-based arbitration scheme keeps all four listeners active simultaneously — no switching,
+                no re-initialization. If WiFi fails, BLE takes over instantly; if BLE fails too, IR and voice keep
+                the system fully operational.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>Key Results</h4>
+              <ul>
+                <li><strong>100%</strong> failover success across 400+ controlled trials</li>
+                <li><strong>&lt;300 ms</strong> average failover latency (6× faster than sequential solutions)</li>
+                <li><strong>95%</strong> offline voice recognition accuracy across 150 commands</li>
+                <li>Graceful degradation: Normal → Degraded → Fallback with zero user intervention</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">BLE</span>
+                <span class="tech-tag">WiFi</span>
+                <span class="tech-tag">IR</span>
+                <span class="tech-tag">UART</span>
+                <span class="tech-tag">Blynk</span>
+                <span class="tech-tag">PlatformIO</span>
+              </div>
+            </div>
+            <div class="detail-block">
+              <h4>Takeaway</h4>
+              <p style="font-size: 0.9rem; font-style: italic;">
+                "Reliability isn't a feature you add later — it's an architectural decision."
+              </p>
+            </div>
+            <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="project-repo-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ PROJECT 6 ============ -->
+    <article class="project-card">
+      <div class="project-image">
+        <div class="placeholder-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Project Image</span>
+          <span style="opacity:0.6;">(Add &lt;img src="..."&gt;)</span>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <span class="project-badge">ROBOTICS</span>
+        <div class="project-head">
+          <h3 class="project-title">5-DOF Robotic Arm with Hybrid Control</h3>
+          <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="gh-icon" aria-label="View on GitHub" title="View on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+        <p class="project-short">
+          A 5-DOF robotic arm controlled via Arduino, combining keyboard-based manual control with gesture-based gripper interaction.
+        </p>
+        <div class="project-meta-row">
+          <div class="tech-tags">
+            <span class="tech-tag">Arduino</span>
+            <span class="tech-tag">Embedded</span>
+            <span class="tech-tag">Robotics</span>
+          </div>
+          <span class="expand-hint">
+            Details
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="project-details-inner">
+          <div>
+            <div class="detail-block">
+              <h4>Overview</h4>
+              <p>
+                Designed and developed a <strong>5-Degree-of-Freedom (5-DOF) robotic arm</strong> controlled via
+                Arduino, integrating five servo motors for independent manipulation of the base, shoulder, elbow,
+                wrist, and gripper.
+              </p>
+            </div>
+            <div class="detail-block">
+              <h4>Key Contributions</h4>
+              <ul>
+                <li><strong>Manual Control Interface</strong> — keyboard-based control via serial communication for real-time, precise joint manipulation</li>
+                <li><strong>Gesture-Based Interaction</strong> — gripper mimics the user's finger movements for intuitive, hands-free object handling</li>
+                <li><strong>System Integration</strong> — embedded programming, servo motor control, and serial communication combined into a hybrid control architecture</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h4>Impact</h4>
+              <p>
+                Demonstrates the seamless integration of conventional manual control with natural gesture
+                recognition, showcasing potential applications in industrial automation, assistive robotics,
+                and remote manipulation.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="detail-block">
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">IoT</span>
+                <span class="tech-tag">Embedded Systems</span>
+                <span class="tech-tag">Servo Control</span>
+                <span class="tech-tag">Serial Comm.</span>
+                <span class="tech-tag">Gesture Recognition</span>
+              </div>
+            </div>
+            <div class="detail-block">
+              <h4>Associated With</h4>
+              <p style="font-size: 0.9rem;">ARTPARK · Bengaluru</p>
+            </div>
+            <a href="https://github.com/SyedHashirA" target="_blank" rel="noopener" class="project-repo-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="fade-in">
+  <span class="section-label">04 — Skills</span>
+  <h2>What I work with</h2>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Cybersecurity</h3>
+      <ul class="skill-list">
+        <li>VAPT</li>
+        <li>Network Security</li>
+        <li>Web App Security</li>
+        <li>API Security</li>
+        <li>Penetration Testing</li>
+        <li>DNS / HTTP</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Security Tools & Platforms</h3>
+      <ul class="skill-list">
+        <li>TryHackMe</li>
+        <li>PortSwigger</li>
+        <li>OverTheWire</li>
+        <li>Burp Suite</li>
+        <li>Splunk</li>
+        <li>Linux</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Programming</h3>
+      <ul class="skill-list">
+        <li>Python</li>
+        <li>C / C++</li>
+        <li>JavaScript</li>
+        <li>Embedded C</li>
+        <li>Arduino IDE</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>IoT & Embedded</h3>
+      <ul class="skill-list">
+        <li>ESP32</li>
+        <li>Arduino</li>
+        <li>BLE / WiFi / IR</li>
+        <li>Servo Control</li>
+        <li>Serial Communication</li>
+        <li>PlatformIO</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Hardware & Design</h3>
+      <ul class="skill-list">
+        <li>PCB Design</li>
+        <li>CAD</li>
+        <li>Circuit Design</li>
+        <li>Sensor Interfacing</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>ML & Frameworks</h3>
+      <ul class="skill-list">
+        <li>Scikit-learn</li>
+        <li>Naive Bayes</li>
+        <li>TF-IDF</li>
+        <li>React.js</li>
+        <li>Blynk IoT</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications" class="fade-in">
+  <span class="section-label">05 — Certifications</span>
+  <h2>Certifications & Training</h2>
+
+  <div class="cert-grid">
+
+    <div class="cert-card">
+      <div class="cert-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="cert-title">GRC Fundamentals — Governance, Risk & Compliance</div>
+      <div class="cert-desc">
+        Foundational knowledge in Governance, Risk Management, and Compliance (GRC) —
+        risk assessment, security controls, compliance requirements, policies, and GRC
+        frameworks with a focus on cybersecurity and organizational risk management.
+      </div>
+      <!-- TODO: Replace # with your certificate URL -->
+      <a href="#" target="_blank" rel="noopener" class="cert-link">
+        View certificate
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="cert-title">Splunk Fundamentals 1 Training</div>
+      <div class="cert-desc">
+        Core Splunk concepts — indexing, SPL searching, creating reports and dashboards,
+        alerts, lookups, and knowledge objects. Strengthened understanding of SIEM
+        workflows for security monitoring.
+      </div>
+      <a href="#" target="_blank" rel="noopener" class="cert-link">
+        View certificate
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="cert-title">Complete PCB Design: From Schematic to Manufacturing</div>
+      <div class="cert-desc">
+        Comprehensive PCB design training covering the complete process from schematic
+        creation through PCB layout to manufacturing — a solid foundation in PCB design.
+      </div>
+      <a href="#" target="_blank" rel="noopener" class="cert-link">
+        View certificate
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="cert-title">Arduino Programming & Hardware Fundamentals with Hackster</div>
+      <div class="cert-desc">
+        Hands-on training in Arduino programming using C/C++ — microcontroller
+        programming, breadboard circuit design, sensor interfacing, motor control,
+        LED control, and basic embedded system development. Built IoT devices and
+        robots from concept to implementation.
+      </div>
+      <a href="#" target="_blank" rel="noopener" class="cert-link">
+        View certificate
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact fade-in">
+  <span class="section-label">06 — Contact</span>
+  <h2>Let's connect</h2>
+  <p>
+    I'm always open to cybersecurity internships, collaborations, or just a chat
+    about security, IoT, or embedded systems.
+  </p>
+  <!-- TODO: Replace with your actual email -->
+  <a href="mailto:your.email@example.com" class="btn btn-primary">
+    Say hello
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p>© <span id="year"></span> Syed Hashir A. Built with care.</p>
+</footer>
+
+<script>
+  // ---------- Year ----------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- Theme toggle ----------
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  // ---------- Nav scroll shadow ----------
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // ---------- Mobile menu ----------
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  // ---------- Project expand/collapse ----------
+  document.querySelectorAll('.project-card').forEach(card => {
+    const body = card.querySelector('.project-body');
+    const ghIcon = card.querySelector('.gh-icon');
+
+    body.addEventListener('click', (e) => {
+      // Don't toggle if user clicked the GitHub icon
+      if (e.target.closest('.gh-icon')) return;
+
+      // Close others (optional — comment out for multi-open)
+      document.querySelectorAll('.project-card.expanded').forEach(c => {
+        if (c !== card) c.classList.remove('expanded');
+      });
+      card.classList.toggle('expanded');
+
+      // Smooth-scroll the expanded card into view
+      if (card.classList.contains('expanded')) {
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 250);
+      }
+    });
+  });
+
+  // ---------- Fade-in on scroll ----------
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
